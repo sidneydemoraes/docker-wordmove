@@ -1,14 +1,6 @@
 # Docker-Wordmove
 
-## What's inside
-* ubuntu 14.04 (smaller one?)
-* openssh-server
-* curl
-* rsync
-* wordmove
-* mysql-client-5.5
-* ENV RUBYOPT="-KU -E utf-8:utf-8" (Fix for some mysql sync issues)
+Fork de mfuezesi/docker-wordmove que foi abandonado há mais de 2 anos.
 
-## How to use
-For example, to access wordmove in separated shell use the follow command:
-`docker run -ti --rm --volumes-from DATAVOLUME -v $(HOME)/.ssh/:/root/.ssh:ro mfuezesi/wordmove bash`
+## Como usar
+Veja em https://medium.com/cluetip/wordpress-development-made-easy-440b564185f2

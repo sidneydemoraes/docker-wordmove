@@ -1,0 +1,25 @@
+global:
+  sql_adapter: default
+local:
+  vhost: "http://localhost:8000"
+  wordpress_path: "/var/www/html"
+  database:
+    name: "wordpress"
+    user: "root"
+    password: "wordpress"
+    host: "database"
+    charset: "utf8"
+production:
+  vhost: "<URL>"
+  wordpress_path: "<FULL_PATH>" 
+  database:
+      name: "<DB_NAME>"
+      user: "<DB_USER>"
+      password: "<DB_PASS>"
+      host: "localhost"
+      charset: "utf8mb4"
+  ssh:
+      host: "<SSH_URL_OR_IP>"
+      user: "<SSH_USER>"
+#      password: "<SSH_PASS>" 
+# password is optional and not recommended, will use public keys if available.
