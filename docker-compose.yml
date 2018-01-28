@@ -5,7 +5,7 @@ services:
         ports:
             - "3307:3306"
         restart: on-failure:5
-        environment: 
+        environment:
             MYSQL_DATABASE: <insira_nome_do_banco>
             MYSQL_USER: <insira_usuario_do_wp_ao_banco>
             MYSQL_PASSWORD: <insira_senha_do_banco>
@@ -40,12 +40,15 @@ services:
         #image: mfuezesi/wordmove
         build: ./wordmove
         restart: on-failure:5
-        container_name: my_wordmove
         volumes:
             - ./config:/home
             - ./public:/var/www/html
             - ~/.ssh:/root/.ssh      # (!)
 #######################################
+#
+# If you want to use custom container
+# names, you can assign a *container_name*
+# property to each service.
 #
 # In case you want to reuse this config 
 # for another Wordpress project and 
