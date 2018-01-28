@@ -26,7 +26,7 @@ services:
             WORDPRESS_DB_PASSWORD: <senha_do_banco>
     phpmyadmin:
         depends_on:
-            - database
+            - wordpress
         image: phpmyadmin/phpmyadmin
         ports:
             - 8080:80
