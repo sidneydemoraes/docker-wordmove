@@ -6,10 +6,10 @@ services:
             - "3307:3306"
         restart: on-failure:5
         environment: 
-            MYSQL_USER: wordpress
-            MYSQL_DATABASE: wordpress
-            MYSQL_PASSWORD: wordpress
-            MYSQL_ROOT_PASSWORD: wordpress
+            MYSQL_DATABASE: <insira_nome_do_banco>
+            MYSQL_USER: <insira_usuario_do_wp_ao_banco>
+            MYSQL_PASSWORD: <insira_senha_do_banco>
+            MYSQL_ROOT_PASSWORD: <insira_senha_root_do_banco>
     wordpress:
         depends_on:
             - database
@@ -21,7 +21,9 @@ services:
             - ./public:/var/www/html
         environment:
             WORDPRESS_DB_HOST: database:3306
-            WORDPRESS_DB_PASSWORD: wordpress
+            WORDPRESS_DB_NAME: <nome_do_banco>
+            WORDPRESS_DB_USER: <usuario_do_banco>
+            WORDPRESS_DB_PASSWORD: <senha_do_banco>
     phpmyadmin:
         depends_on:
             - database
