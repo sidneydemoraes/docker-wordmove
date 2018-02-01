@@ -37,7 +37,6 @@ services:
         tty: true
         depends_on:
             - wordpress
-        #image: mfuezesi/wordmove
         build: ./wordmove
         restart: on-failure:5
         volumes:
@@ -46,30 +45,25 @@ services:
             - ~/.ssh:/root/.ssh      # (!)
 #######################################
 #
-# If you want to use custom container
-# names, you can assign a *container_name*
-# property to each service.
+# Se quiser atribuir nomes personalizados
+# a cada um dos contêineres criados aqui, 
+# insira a propriedade *container_name:* 
+# no serviço do contêiner a ser renomeado.
 #
-# In case you want to reuse this config 
-# for another Wordpress project and 
-# them have both run *simultaneously*
-# you'll need to:
+# Esse procedimento será necessário caso
+# você queira reutilizar este modelo de
+# configuração para criar contêineres de
+# outro projeto Wordpress e ambos precisem
+# permanecer na sua máquina ao mesmo tempo.
 #
-# - change wordmove's container_name
-#   to anything else - marked as (+)
-#   e.g. wordmove123
+# Para *rodar* dois projetos Wordpress ao
+# mesmo tempo, também será necessário mudar
+# a porta utilizada por cada contêiner do
+# novo projeto.
 #
-# - change the first number of ports
-#   to another one   - marked as (*)
-#   "<new_host_port>:<container_port>"
-#   e.g.
-#    - change wordpres port numbers 
-#      from "8000:80" to "8001:80"
-#    - change phmyadmin port numbers 
-#      from "8080:80" to "8081:80
-#    - change database port numbers 
-#      form "3307:3306" to "3308:3306" 
+# (!) Você pode copiar suas chaves SSH para
+# a pasta SSH caso elas sejam necessárias
+# para se conectar remotamente ao seu
+# servidor de produção.
 #
-# (!) Copy your local .ssh keys only if 
-#     necessary to connect to remote
 #######################################
