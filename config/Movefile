@@ -19,6 +19,8 @@ production:
       password: "<senha_do_banco_de_producao>"
       host: "localhost"
       charset: "utf8mb4"
+      # Wordfence pode apresentar problemas de charset. Descomente a linha abaixo para possível solução.
+      # mysqldump_options: "--ignore-table=DATABASENAME.wp_wfVulnScanners --ignore-table=DATABASENAME.wp_wfThrottleLog --ignore-table=DATABASENAME.wp_wfStatus --ignore-table=DATABASENAME.wp_wfSNIPCache --ignore-table=DATABASENAME.wp_wfScanners --ignore-table=DATABASENAME.wp_wfReverseCache --ignore-table=DATABASENAME.wp_wfNet404s --ignore-table=DATABASENAME.wp_wfLogins --ignore-table=DATABASENAME.wp_wfLocs --ignore-table=DATABASENAME.wp_wfLockedOut --ignore-table=DATABASENAME.wp_wfLeechers --ignore-table=DATABASENAME.wp_wfKnownFileList --ignore-table=DATABASENAME.wp_wfIssues --ignore-table=DATABASENAME.wp_wfHoover --ignore-table=DATABASENAME.wp_wfHits --ignore-table=DATABASENAME.wp_wfFileMods --ignore-table=DATABASENAME.wp_wfCrawlers --ignore-table=DATABASENAME.wp_wfConfig --ignore-table=DATABASENAME.wp_wfBlocksAdv --ignore-table=DATABASENAME.wp_wfBlocks --ignore-table=DATABASENAME.wp_wfBlockedIPLog --ignore-table=DATABASENAME.wp_wfBadLeechers --ignore-table=DATABSAENAME.wf_wfNotifications"
   ssh:
       host: "<SSH_URL_OR_IP>"
       user: "<SSH_USER>"
