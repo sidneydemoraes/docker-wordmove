@@ -1,5 +1,6 @@
 global:
   sql_adapter: default
+# sql_adapter: wpcli
 local:
   vhost: "http://localhost:8000"
   wordpress_path: "/var/www/html"
