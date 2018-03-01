@@ -13,6 +13,9 @@ RUN echo "source /etc/profile.d/rvm.sh" >> /etc/bash.bashrc
 RUN /bin/bash -c "source /etc/profile.d/rvm.sh \
   && rvm install ruby --latest \
   && gem install wordmove"
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
+    chmod +x wp-cli.phar && /
+    mv wp-cli.phar /usr/local/bin/wp
 ENV RUBYOPT="-KU -E utf-8:utf-8"
 
 WORKDIR /home
