@@ -1,16 +1,18 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 
-RUN apt-get update
-RUN apt-get install -y \
+RUN apt-get update \
+  && apt-get install -y \
   openssh-server \
   curl \
   rsync \
   mysql-client-5.7 \
-  sshpass
-RUN \gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-RUN \curl -sSL https://get.rvm.io | bash -s latest
-RUN echo "source /etc/profile.d/rvm.sh" >> /etc/bash.bashrc
-RUN /bin/bash -c "source /etc/profile.d/rvm.sh \
+  sshpass \
+  software-properties-common \
+  && apt-get update
+RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
+  && \curl -sSL https://get.rvm.io | bash -s stable --ruby
+RUN echo "source /usr/local/rvm/scripts/rvm" >> /etc/bash.bashrc \
+  && /bin/bash -c "source /usr/local/rvm/scripts/rvm \
   && rvm install ruby --latest \
   && gem install wordmove \
   && gem update wordmove"

@@ -42,7 +42,7 @@ services:
         depends_on:
             - wordpress
         build: ./wordmove
-        image: smc/wordmove:0.1
+        image: smc/wordmove:1.0.0
         restart: on-failure:5
         volumes:
             - ./config:/home
