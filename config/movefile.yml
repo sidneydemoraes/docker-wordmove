@@ -1,0 +1,52 @@
+global:
+  # sql_adapter: default or wpcli
+  sql_adapter: "<%= ENV['WORDMOVE_SQL_ADAPTER'] %>"
+
+local:
+  vhost: "http://localhost:80"
+  wordpress_path: "/var/www/html"
+  database:
+    name: "<%= ENV['LOCAL_DB_NAME'] %>"
+    user: "<%= ENV['LOCAL_DB_USER'] %>"
+    password: "<%= ENV['LOCAL_DB_PASS'] %>"
+    host: "database"
+    mysqldump_options: "--hex-blob"
+
+production:
+  vhost: "<%= ENV['PRODUCTION_HOST'] %>"
+  wordpress_path: "<%= ENV['PRODUCTION_WP_PATH'] %>"
+  ssh:
+    host: "<%= ENV['PRODUCTION_SSH_HOST'] %>"
+    port: "<%= ENV['PRODUCTION_SSH_PORT'] %>"
+    user: "<%= ENV['PRODUCTION_SSH_USER'] %>"
+    # password: "<SSH_PASS>"
+    # O uso de senha de SSH é opcional e não recomendado.
+    # Chaves públicas serão utilizadas caso disponíveis.
+  exclude:
+    - '.git/'
+    - '.gitignore'
+    - '.gitmodules'
+    - '.env'
+    - 'node_modules/'
+    - 'bin/'
+    - 'tmp/*'
+    - 'Gemfile*'
+    - 'Movefile'
+    - 'movefile'
+    - 'movefile.yml'
+    - 'movefile.yaml'
+    - 'wp-config.php'
+    - 'wp-content/*.sql.gz'
+    - '*.orig'
+    - 'wp-content/uploads/backwpup*/*'
+    - '.htaccess'
+    - '.idea/'
+  database:
+      host: "<%= ENV['PRODUCTION_DB_HOST'] %>"
+      port: "<%= ENV['PRODUCTION_DB_PORT'] %>"
+      name: "<%= ENV['PRODUCTION_DB_NAME'] %>"
+      user: "<%= ENV['PRODUCTION_DB_USER'] %>"
+      password: "<%= ENV['PRODUCTION_DB_PASS'] %>"
+      charset: "utf8mb4"
+      # Wordfence pode apresentar problemas de charset. Descomente a linha abaixo para possível solução.
+      # mysqldump_options: "--ignore-table=DATABASENAME.wp_wfVulnScanners --ignore-table=DATABASENAME.wp_wfThrottleLog --ignore-table=DATABASENAME.wp_wfStatus --ignore-table=DATABASENAME.wp_wfSNIPCache --ignore-table=DATABASENAME.wp_wfScanners --ignore-table=DATABASENAME.wp_wfReverseCache --ignore-table=DATABASENAME.wp_wfNet404s --ignore-table=DATABASENAME.wp_wfLogins --ignore-table=DATABASENAME.wp_wfLocs --ignore-table=DATABASENAME.wp_wfLockedOut --ignore-table=DATABASENAME.wp_wfLeechers --ignore-table=DATABASENAME.wp_wfKnownFileList --ignore-table=DATABASENAME.wp_wfIssues --ignore-table=DATABASENAME.wp_wfHoover --ignore-table=DATABASENAME.wp_wfHits --ignore-table=DATABASENAME.wp_wfFileMods --ignore-table=DATABASENAME.wp_wfCrawlers --ignore-table=DATABASENAME.wp_wfConfig --ignore-table=DATABASENAME.wp_wfBlocksAdv --ignore-table=DATABASENAME.wp_wfBlocks --ignore-table=DATABASENAME.wp_wfBlockedIPLog --ignore-table=DATABASENAME.wp_wfBadLeechers --ignore-table=DATABSAENAME.wf_wfNotifications"
